@@ -1,2 +1,64 @@
-# Packet-Base-
-Packet Base is a lightweight, real-time Meshtastic packet monitor. It connects to any Meshtastic device over USB and displays live packets, node activity, text messages, telemetry, and JSON payloads in a clean desktop UI. Perfect for debugging nodes, mapping coverage, analyzing traffic, or teaching others how the mesh works.
+# ePacket Base
+
+ePacket Base is a desktop **Meshtastic packet console** built with Python and Tkinter.
+
+It connects to a Meshtastic node over USB serial and gives you a clean, cyberpunk-style
+view of what your radio is doing:
+
+- Live **serial / router logs** from the node
+- Decoded **Meshtastic packets** with RSSI / SNR
+- A searchable table of **seen nodes**
+- A **message list** showing who talked to who on which channel
+- Raw **JSON view** of the last packet if you want to feed it into other tools
+
+No database. No cloud. Just you and the RF.
+
+---
+
+## Features
+
+- 🛰 **Serial / Packet Feed**  
+  Left pane shows all log lines coming off the radio plus a one-line summary
+  for each decoded packet (TEXT, POS, TELEMETRY, etc).
+
+- 👥 **Nodes Tab**  
+  Lists every node your radio has seen on the mesh with node ID, name, and
+  last-heard time.
+
+- 💬 **Messages Tab**  
+  Shows text messages with timestamp, channel, source, destination, and a
+  truncated preview.
+
+- 🧱 **Raw JSON Detail**  
+  Bottom-left pane shows the full decoded Meshtastic packet as JSON for the
+  last packet received.
+
+- 📡 **TX Support**  
+  Simple “Channel + Send” bar at the bottom to broadcast messages from your
+  connected node.
+
+---
+
+## Requirements
+
+- **OS:** Windows, macOS, or Linux  
+- **Python:** 3.10+ recommended
+- A Meshtastic-compatible device connected over USB (T-Beam, Heltec, RAK, etc.)
+
+Python packages:
+
+- `meshtastic`
+- `pyserial`
+- `pypubsub`
+
+You can install them from `requirements.txt` or manually (see below).
+
+---
+
+## Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-user/epacket-base.git
+cd epacket-base
